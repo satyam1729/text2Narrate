@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 import os
 import sys
-sys.path.append('/home/satyam/code/text2Narrate/narration')
-
+cwd = os.getcwd()
+to_add=cwd+'/narration'
+sys.path.append(to_add)
+#print(to_add)
 
 
 if __name__ == "__main__":
