@@ -8,3 +8,4 @@ tqdm==4.11.2
 Unidecode==0.4.20
 tensorflow
 sounddevice
+django
