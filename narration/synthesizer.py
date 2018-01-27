@@ -6,7 +6,7 @@ from librosa import effects
 from models1 import create_model
 from text import text_to_sequence
 from util import audio
-
+import os
 
 
 class Synthesizer:
@@ -26,7 +26,7 @@ class Synthesizer:
     saver.restore(self.session, checkpoint_path)
 
 
-  def synthesize(self, text):
+  def synthesize(self, text, title):
     cleaner_names = [x.strip() for x in hparams.cleaners.split(',')]
     seq = text_to_sequence(text, cleaner_names)
     feed_dict = {
@@ -39,6 +39,9 @@ class Synthesizer:
     out = io.BytesIO()
     audio.save_wav(wav, out)
     audio.play_wav(wav)
-    with open("/home/satyam/Desktop/test.wav", "wb") as f:
+    cwd = os.getcwd()
+    audio_dir=cwd+"/narration/saved_audio/"+title+".wav"
+    print(audio_dir)
+    with open(audio_dir, "wb") as f:
         f.write(out.getvalue())
     return out.getvalue()
