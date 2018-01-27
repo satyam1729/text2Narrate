@@ -1,5 +1,5 @@
 # text2Narrate
-Python version tested: 3.4
+Python version tested: 3.4<br>
 Steps:
 1) Create and activate virtualenvironment with python 3
 2) pip install -r requirements.txt
