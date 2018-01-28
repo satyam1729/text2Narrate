@@ -38,10 +38,10 @@ class Synthesizer:
     wav = wav[:audio.find_endpoint(wav)]
     out = io.BytesIO()
     audio.save_wav(wav, out)
-    audio.play_wav(wav)
     cwd = os.getcwd()
     audio_dir=cwd+"/narration/saved_audio/"+title+".wav"
     print(audio_dir)
     with open(audio_dir, "wb") as f:
         f.write(out.getvalue())
+    os.system("aplay "+ audio_dir)    
     return out.getvalue()
